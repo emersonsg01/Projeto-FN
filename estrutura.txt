@@ -1,0 +1,3 @@
+index.html    - Interface principal
+style.css     - Estilos da aplicação
+script.js     - Lógica de manipulação de imagens

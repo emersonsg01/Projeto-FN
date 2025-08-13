@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor de Imagem</title>
+    <!-- Cropper.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css">
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Editor de Imagem</h1>
+        
+        <div class="upload-container">
+            <h3>Selecionar Imagens</h3>
+            <label for="image-input" class="upload-label">Escolher Imagens</label>
+            <input type="file" id="image-input" class="upload-input" accept="image/*" multiple>
+            <p class="formats-info">Formatos suportados: JPG, PNG, GIF, BMP, WEBP, etc.</p>
+        </div>
+        
+        <div id="images-preview" class="images-preview">
+            <h3>Imagens Selecionadas</h3>
+            <div class="preview-container" id="preview-container"></div>
+        </div>
+        
+        <div id="editor-container" class="editor-container">
+            <h3>Editor</h3>
+            <div class="image-container">
+                <img id="image" src="" alt="Imagem para edição">
+            </div>
+            
+            <div class="controls">
+                <div class="crop-controls">
+                    <h3>Ferramentas de Recorte</h3>
+                    <button id="crop-btn" class="btn primary-btn">Recortar</button>
+                    <button id="reset-btn" class="btn">Resetar</button>
+                    
+                    <div class="aspect-ratio">
+                        <label for="aspect-ratio">Proporção:</label>
+                        <select id="aspect-ratio">
+                            <option value="0.75">3:4</option>
+                            <option value="1.33333">4:3</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="export-controls">
+                    <h3>Exportar</h3>
+                    <div class="quality-control">
+                        <label for="quality">Qualidade JPEG: <span id="quality-value">80%</span></label>
+                        <input type="range" id="quality" min="0" max="1" step="0.1" value="0.8">
+                    </div>
+                    <button id="export-btn" class="btn primary-btn">Exportar como JPEG</button>
+                    <button id="export-zip-btn" class="btn primary-btn">Exportar como ZIP</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="result-container" class="result-container">
+            <h3>Imagem Recortada</h3>
+            <div class="result-image-container">
+                <img id="result" src="" alt="Resultado">
+            </div>
+            <a id="download-link" class="btn primary-btn" download="imagem_recortada.jpg">Download</a>
+        </div>
+    </div>
+    
+    <!-- Cropper.js, JSZip e FileSaver -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <!-- Script da aplicação -->
+    <script src="script.js"></script>
+</body>
+</html>
